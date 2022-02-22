@@ -87,9 +87,12 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
 }
+h1,
+h2 {
+  font-family: 'Staatliches', cursive;
+}
 
 h1 {
-  font-family: 'Staatliches', cursive;
   text-align: center;
   font-size: 8em;
 }
@@ -121,6 +124,7 @@ button {
   border-radius: 5px;
   padding: 10px;
   background-color: white;
+  text-align: center;
 }
 
 .btn {

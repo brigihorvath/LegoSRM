@@ -5,7 +5,7 @@ class CheapestVendorView extends View {
     return Object.keys(this.data)
       .map(
         (material) =>
-          `<h2>${material}</h2><p>${this.data[material].vendor}</p><p>${this.data[material].price}</p>`
+          `<h2>${material}</h2><h3>Vendor: ${this.data[material].vendor}</h3><p>PPU: ${this.data[material].price} EURO</p>`
       )
       .join('');
   }

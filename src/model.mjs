@@ -92,7 +92,7 @@ class LegoModel {
     const resultWithColors = {};
 
     convertedMaterials.forEach((material) => {
-      const materialWithColor = `${material.Name}${material.Color}`;
+      const materialWithColor = `${material.Name} ${material.Color}`;
       if (
         resultWithColors[materialWithColor]?.price > material.PricePerUnit ||
         !(materialWithColor in resultWithColors)
@@ -100,11 +100,11 @@ class LegoModel {
         resultWithColors[materialWithColor] = {};
         resultWithColors[materialWithColor].vendor =
           data.Vendors[material.VendorID - 1].Name;
-        resultWithColors[materialWithColor].price = material.PricePerUnit;
+        resultWithColors[materialWithColor].price =
+          material.PricePerUnit.toFixed(2);
       }
     });
 
-    // TEST
     // const vendorsListOrdered = convertedMaterials
     //   .sort((a, b) => a.PricePerUnit - b.PricePerUnit)
     //   .sort((a, b) => (a.Name > b.Name ? 1 : -1));
@@ -131,7 +131,7 @@ class LegoModel {
         result[material.Name] = {};
         // include the vendor's name from the Vendors array
         result[material.Name].vendor = data.Vendors[material.VendorID - 1].Name;
-        result[material.Name].price = material.PricePerUnit;
+        result[material.Name].price = material.PricePerUnit.toFixed(2);
       }
     });
 
@@ -198,8 +198,14 @@ class LegoModel {
 
     const bestOffer = bestOfferPMMA[0];
 
-    // console.log(bestOfferPMMA);
-    return bestOfferPMMA[0];
+    // return the flattened data to be easy to work with that in the view
+    return {
+      'Vendor ID': bestOfferPMMA[0].VendorID,
+      Vendor: bestOfferPMMA[0].vendor,
+      PPU: bestOfferPMMA[0].PricePerUnit,
+      'Delivery Time': bestOfferPMMA[0].DeliveryTimeDays,
+      'Eco Friendly': bestOfferPMMA[0].isEcoFriendly,
+    };
   }
 }
 
