@@ -1,5 +1,6 @@
 import legoModel from './model.mjs';
 import cheapestVendorView from './views/CheapestVendorView.mjs';
+import PMMABestOfferView from './views/PMMABestOfferView.mjs';
 import vendorListView from './views/VendorListView.mjs';
 
 class Controller {
@@ -13,6 +14,7 @@ class Controller {
     cheapestVendorView.addCheapestVendorColorHandler(
       this.#cheapestVendorColorListHandler
     );
+    PMMABestOfferView.addPMMAHandler(this.#PMMABestOfferHandler);
   }
 
   /// the handler function that event listener in the vendorListView gets
@@ -37,6 +39,11 @@ class Controller {
   #cheapestVendorColorListHandler() {
     const data = legoModel.cheapestVendorByMaterialsColors();
     cheapestVendorView.render(data);
+  }
+
+  #PMMABestOfferHandler() {
+    const data = legoModel.bestOfferPMMA();
+    PMMABestOfferView.render(data);
   }
 }
 const controller = new Controller();
