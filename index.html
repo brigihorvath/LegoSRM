@@ -4,29 +4,34 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Staatliches&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./src/styles/styles.css" />
     <script defer type="module" src="./src/controller.mjs"></script>
     <title>Lego Mini SRM</title>
   </head>
   <body>
     <h1>Lego Mini SRM</h1>
-    <div>
-      <button type="button" class="vendorsListButton">
+    <div class="buttonContainer">
+      <button type="button" class="vendorsListButton btn">
         Get the vendors list - Task 1
       </button>
-      <button type="button" class="cheapestVendorsListButton">
+      <button type="button" class="cheapestVendorsListButton btn">
         Get the cheapest vendor by Material - Task 2
       </button>
 
-      <button type="button" class="cheapestVendorColorListButton">
+      <button type="button" class="cheapestVendorColorListButton btn">
         Get the cheapest vendor by Material and Color - Task 2
       </button>
 
-      <button type="button" class="bestOfferForPMMAButton">
+      <button type="button" class="bestOfferForPMMAButton btn">
         Get the best offer for PMMA - Task 3
       </button>
-
-      <div class="vendorListContainer"></div>
     </div>
+    <div class="vendorListContainer"></div>
   </body>
 </html>

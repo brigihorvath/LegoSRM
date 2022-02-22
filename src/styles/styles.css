@@ -1,0 +1,153 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove default padding */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+}
+
+/* Remove list styles on ul, ol elements with a class attribute */
+ul[class],
+ol[class] {
+  list-style: none;
+}
+/* Make images easier to work with */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Natural flow and rhythm in articles by default */
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p {
+  margin-bottom: 15px;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+body {
+  font: 14px 'Open Sans', Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  background-color: #f2f6f9;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  padding: 20px;
+  /* height: 100vh; */
+  background-image: linear-gradient(to right bottom, #fbdb89, #f48982);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+h1 {
+  font-family: 'Staatliches', cursive;
+  text-align: center;
+  font-size: 8em;
+}
+
+.buttonContainer {
+  display: flex;
+  /* flex-direction: column; */
+  width: 1200px;
+  max-width: 90%;
+  margin: 0 auto;
+  /* position: fixed; */
+}
+
+button {
+  /* margin: 5px 5px; */
+  padding: 10px 20px;
+}
+
+/* .srmContainer {
+  display: flex;
+} */
+
+.vendorListContainer {
+  width: 1200px;
+  max-width: 90%;
+  min-height: 80vh;
+  margin: 0 auto;
+  border: 1px solid rgb(219, 214, 214);
+  border-radius: 5px;
+  padding: 10px;
+  background-color: white;
+}
+
+.btn {
+  box-shadow: 0px 5px 5px -7px #575554;
+  /* background: linear-gradient(to bottom, #599bb3 5%, #408c99 100%); */
+  background: linear-gradient(to bottom, #f9f5f3 5%, #f9f5f3 100%);
+  background-color: #f9f5f3;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  display: inline-block;
+  cursor: pointer;
+  color: rgb(83, 80, 80);
+  font-size: 20px;
+  font-weight: bold;
+  padding: 13px 32px;
+  text-decoration: none;
+  /* text-shadow: 0px 1px 0px #3d768a; */
+  border-left: 1px solid rgb(226, 221, 221);
+  border-right: 1px solid rgb(226, 221, 221);
+  border-top: none;
+  border-bottom: none;
+}
+.btn:hover {
+  background: linear-gradient(to bottom, #eef5f6 5%, #d3dbdb 100%);
+  background-color: #eef5f6;
+}
+.btn:active {
+  position: relative;
+  top: 1px;
+}
