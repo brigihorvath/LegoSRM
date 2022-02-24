@@ -108,6 +108,8 @@ class LegoModel {
           data.Vendors[material.VendorID - 1].Name;
         resultWithColors[materialWithColor].price =
           material.PricePerUnit.toFixed(2);
+        resultWithColors[materialWithColor].deliveryTime =
+          material.DeliveryTimeDays;
       }
     });
 
@@ -138,6 +140,7 @@ class LegoModel {
         // include the vendor's name from the Vendors array
         result[material.Name].vendor = data.Vendors[material.VendorID - 1].Name;
         result[material.Name].price = material.PricePerUnit.toFixed(2);
+        result[material.Name].deliveryTime = material.DeliveryTimeDays;
       }
     });
 

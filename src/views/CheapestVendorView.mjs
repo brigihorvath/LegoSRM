@@ -2,10 +2,11 @@ import View from './View.mjs';
 
 class CheapestVendorView extends View {
   generateMarkup() {
+    console.log(this.data);
     return Object.keys(this.data)
       .map(
         (material) =>
-          `<h2>${material}</h2><h3>Vendor: ${this.data[material].vendor}</h3><p>PPU: ${this.data[material].price} EURO</p>`
+          `<h2>${material}</h2><h3>Vendor: ${this.data[material].vendor}</h3><p>PPU: ${this.data[material].price} EURO</p><p>Delivery Time: ${this.data[material].deliveryTime} days</p>`
       )
       .join('');
   }
