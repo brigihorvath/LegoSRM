@@ -3,6 +3,8 @@
 ## Description
 
 A JavaScript application to search and filter vendor and material data.
+The project uses ES6 modules, so to open it in the browser, you will need to use the live-server.
+
 After opening the index.html file in the browser, the user can click on buttons to see results to 3 predefined tasks.
 
 - Task 1 - Sort out all the vendors and the materials that the vendor offers
@@ -16,7 +18,7 @@ Each task has a button on the screen and on click the result of the Task will ap
 
 - The project was written with JavaScript (ES6+), so a modern browser is a requirement to properly use the app.
 - no node modules are used, so no installation is required
-- index.html can be opened via live-server or just in the browser
+- index.html can be opened via live-server
 
 ## Project structure
 

@@ -2,7 +2,6 @@ import View from './View.mjs';
 
 class CheapestVendorView extends View {
   generateMarkup() {
-    console.log(this.data);
     return Object.keys(this.data)
       .map(
         (material) =>

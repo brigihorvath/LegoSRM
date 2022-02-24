@@ -24,7 +24,6 @@ class LegoModel {
         ],
       };
     });
-    console.log(vendorMap);
     return vendorMap;
   }
 
@@ -74,7 +73,6 @@ class LegoModel {
         Unit: 'kg',
       };
     });
-    console.log(convertedMaterials);
     return convertedMaterials;
   }
 
