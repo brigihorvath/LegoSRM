@@ -15,11 +15,16 @@ class LegoModel {
     const vendorMap = data.Vendors.map((vendor) => {
       return {
         name: vendor.Name,
-        materials: data.Materials.filter(
-          (material) => material.VendorID === vendor.ID
-        ),
+        materials: [
+          ...new Set(
+            data.Materials.filter(
+              (material) => material.VendorID === vendor.ID
+            ).map((material) => material.Name)
+          ),
+        ],
       };
     });
+    console.log(vendorMap);
     return vendorMap;
   }
 
@@ -69,6 +74,7 @@ class LegoModel {
         Unit: 'kg',
       };
     });
+    console.log(convertedMaterials);
     return convertedMaterials;
   }
 

@@ -12,7 +12,7 @@ class VendorListView extends View {
       .map(
         (vendor) =>
           `<h2>${vendor.name}</h2> ${vendor.materials
-            .map((material) => `<p>${material.Name} - ${material.Color}</p>`)
+            .map((material) => `<p>${material}</p>`)
             .join('')}`
       )
       .join('');
