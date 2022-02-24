@@ -175,16 +175,23 @@ class LegoModel {
 
     // to choose the best offer, first I find the cheapest offer
     // the array needs to be filtered to the NAME and the MELTING POINT
-    const bestOfferPMMA = normalizedTempMaterials
-      .filter(
-        (material) =>
-          material.Name.includes('PMMA') &&
-          material.MeltingPoint >= 200 &&
-          material.MeltingPoint <= 300
-      )
-      .sort((a, b) => a.PricePerUnit - b.PricePerUnit);
+    let cheapestOffer;
+    const bestOfferPMMA = normalizedTempMaterials.filter(
+      (material) =>
+        material.Name.includes('PMMA') &&
+        material.MeltingPoint >= 200 &&
+        material.MeltingPoint <= 300
+    );
+    bestOfferPMMA.forEach((offer) => {
+      if (offer.PricePerUnit < cheapestOffer?.PricePerUnit || !cheapestOffer) {
+        cheapestOffer = offer;
+      }
+    });
 
-    const cheapestOffer = bestOfferPMMA[0];
+    // a simple sort would have been also worked to choose the cheapest offer,
+    // but it has a bigger time complexity O => n(logn)
+    // .sort((a, b) => a.PricePerUnit - b.PricePerUnit);
+    // const cheapestOffer = bestOfferPMMA[0];
 
     // I compare all the offers to the cheapest one
     // I give weights to all the factors I consider
@@ -192,7 +199,7 @@ class LegoModel {
     // the offer with the lowest point will be the offer my algorithm choose
     const IMPORTANCE_PRICE = 200;
     const IMPORTANCE_DELIVERY_TIME = 100;
-    const IMPORTANCE_ECO_FRIENDLY = 60;
+    const IMPORTANCE_ECO_FRIENDLY = 40;
 
     bestOfferPMMA.forEach((material) => {
       material.offerPoints =
@@ -203,17 +210,22 @@ class LegoModel {
         (material.isEcoFriendly ? 0 : IMPORTANCE_ECO_FRIENDLY);
       material.vendor = data.Vendors[material.VendorID - 1].Name;
     });
-    bestOfferPMMA.sort((a, b) => a.offerPoints - b.offerPoints);
-
-    const bestOffer = bestOfferPMMA[0];
+    let bestOffer;
+    bestOfferPMMA.forEach((offer) => {
+      if (offer.offerPoints < bestOffer?.offerPoints || !bestOffer) {
+        bestOffer = offer;
+      }
+    });
+    // bestOfferPMMA.sort((a, b) => a.offerPoints - b.offerPoints);
+    // const bestOffer = bestOfferPMMA[0];
 
     // return the flattened data to be easy to work with that in the view
     return {
-      'Vendor ID': bestOfferPMMA[0].VendorID,
-      Vendor: bestOfferPMMA[0].vendor,
-      PPU: bestOfferPMMA[0].PricePerUnit,
-      'Delivery Time': bestOfferPMMA[0].DeliveryTimeDays,
-      'Eco Friendly': bestOfferPMMA[0].isEcoFriendly,
+      'Vendor ID': bestOffer.VendorID,
+      Vendor: bestOffer.vendor,
+      PPU: bestOffer.PricePerUnit,
+      'Delivery Time': bestOffer.DeliveryTimeDays,
+      'Eco Friendly': bestOffer.isEcoFriendly,
     };
   }
 }
