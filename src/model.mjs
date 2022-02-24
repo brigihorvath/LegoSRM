@@ -199,7 +199,7 @@ class LegoModel {
     // the offer with the lowest point will be the offer my algorithm choose
     const IMPORTANCE_PRICE = 200;
     const IMPORTANCE_DELIVERY_TIME = 100;
-    const IMPORTANCE_ECO_FRIENDLY = 40;
+    const IMPORTANCE_ECO_FRIENDLY = 60;
 
     bestOfferPMMA.forEach((material) => {
       material.offerPoints =
@@ -223,7 +223,7 @@ class LegoModel {
     return {
       'Vendor ID': bestOffer.VendorID,
       Vendor: bestOffer.vendor,
-      PPU: bestOffer.PricePerUnit,
+      PPU: bestOffer.PricePerUnit.toFixed(2),
       'Delivery Time': bestOffer.DeliveryTimeDays,
       'Eco Friendly': bestOffer.isEcoFriendly,
     };
