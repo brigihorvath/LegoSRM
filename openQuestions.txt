@@ -1,0 +1,21 @@
+I. Any issues with the data model, and how can we improve it? 
+1. lbs and kg are not in a normalized format - it is constant so it could be
+2. C and F could be also in a normalized format
+3. currency ---> store the currency in EURO (or some agreed currency) and refresh it every day according to the current exchange rates of our bank (trade-off - we have to refresh the whole database )
+4. Eco-Friendly - store it at the material
+5. Vendor - what materials are available at the vendor (in MongoDB an array of ObjectIDs)
+6. an array which contains objects with the materialID and the vendorID (because if one material can be supplied from many vendors, then the materials should be duplicated)
+    but in this case we would need to store the PPU and Delivery Times here)
+
+II. Any other filter options you might think that might be useful?
+
+1. What materials are available?
+2. What materials are available and in what colors and with what melting points? - because during planning a product the designers (or the support team) should know what their possibilities are or if they have to discuss with the SCM team if they can get the proper material for them
+3. Materials - what vendor can supply it?
+4. Materials by color - what vendor can supply it?
+5. Materials - the best offer for every material (like at Task 2 and Task 3 combined, just for every material)
+6. Colors - what materials are available in with the given color?
+7. Melting point - for a given melting point what materials (and color) are available?
+8. Vendors - What materials can they supply? - Task 1
+9. Vendors - What materials by color can they supply?
+10. Vendors - Eco-friendly vendors
